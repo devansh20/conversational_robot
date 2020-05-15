@@ -1,0 +1,207 @@
+<aiml version="0.9.3" encoding="UTF-8">
+<!-- basic_chat.aiml -->
+
+      <category>
+      <pattern>HI</pattern>
+      <template>
+      Hi! Welcome to The RainForest Restaurant! Would you like to reserve a table or get home delivery or track your order?
+      </template>
+      </category>
+      <category>
+      <pattern>HEY</pattern>
+      <template>
+      Hi! Welcome to The RainForest Restaurant! Would you like to reserve a table or get home delivery or track your order?
+      </template>
+      </category>
+     <category>
+      <pattern>HELLO</pattern>
+      <template>
+       Hi! Welcome to The RainForest Restaurant! Would you like to reserve a table or get home delivery or track your order?
+      </template>
+      </category>
+      <category>
+      <pattern> RESERVE A TABLE </pattern>
+      <template>Fantastic! Can you specify the time of your arrival?</template>
+     </category>
+     <category>
+      <pattern>* RESERVE A TABLE </pattern>
+      <template><srai>RESERVE A TABLE</srai></template>
+     </category>
+     <category>
+      <pattern> RESERVE A TABLE *</pattern>
+      <template><srai>RESERVE A TABLE</srai></template>
+     </category>
+      <category>
+      <pattern>* RESERVE A TABLE *</pattern>
+      <template><srai>RESERVE A TABLE</srai></template>
+     </category>
+     <category>
+     <pattern>WHAT ARE YOU</pattern>
+     <template>I am a customer service Bot, silly!</template>
+     </category>
+      <category>
+      <pattern>*</pattern>
+      <that>FANTASTIC CAN YOU SPECIFY THE TIME OF YOUR ARRIVAL</that>
+      <template><think>
+      <set name = "t"><star/></set></think>
+      We have seats available at that time. May I have your name too?
+      </template>
+     </category>
+        <category>
+      <pattern>*</pattern>
+      <that>WE HAVE SEATS AVAILABLE AT THAT TIME MAY I HAVE YOUR NAME TOO</that>
+      <template><think>
+      <set name = "n"><star/></set></think>
+      Thank you. May I also know how many people will be there with you?
+      </template>
+     </category>
+     <category>
+     <pattern>* IS THE FOOD GOOD *</pattern>
+     <template>Yes, it is! We have been consistently voted amongst the best restaurants in the city. You can check out our ratings on Zomato!</template>
+     </category>
+         <category>
+      <pattern>*</pattern>
+      <that>THANK YOU MAY I ALSO KNOW HOW MANY PEOPLE WILL BE THERE WITH YOU</that>
+      <template><think>
+      <set name = "p"><star/></set></think>
+      Thank You <get name ="n"/>. Your booking at <get name="t"/> for <get name="p"/> people is confirmed. Please try to come on time. We hope to see you soon!
+      </template>
+     </category>
+      <category>
+      <pattern> HOME DELIVERY </pattern>
+      <template>Great! We have a variety of cuisines available. You can order from Chinese, Indian and Italian. Please specify your order.</template>
+     </category>
+     <category>
+      <pattern>* HOME DELIVERY </pattern>
+      <template><srai>HOME DELIVERY</srai></template>
+     </category>
+     <category>
+      <pattern> HOME DELIVERY *</pattern>
+      <template><srai>HOME DELIVERY</srai></template>
+     </category>
+      <category>
+      <pattern>* HOME DELIVERY *</pattern>
+      <template><srai>HOME DELIVERY</srai></template>
+     </category>
+      <category>
+      <pattern>*</pattern>
+      <that>GREAT WE HAVE A VARIETY OF CUISINES AVAILABLE YOU CAN ORDER FROM CHINESE INDIAN AND ITALIAN PLEASE SPECIFY YOUR ORDER</that>
+      <template><think>
+      <set name ="n"><star/></set></think>
+      That is an excellent choice! Can you specify the quantity as well?
+      </template>
+     </category>
+     <category>
+      <pattern>*</pattern>
+      <that> THAT IS AN EXCELLENT CHOICE CAN YOU SPECIFY THE QUANTITY AS WELL</that>
+      <template><think>
+      <set name = "q"><star/></set></think>
+      Along with it, we also offer one complementary dessert. You have to decide which one from Kulfi, Ice Cream and GulabJamun?
+      </template>
+     </category>
+         <category>
+      <pattern>*</pattern>
+      <that>ALONG WITH IT WE ALSO OFFER ONE COMPLEMENTARY DESSERT YOU HAVE TO DECIDE WHICH ONE FROM KULFI ICE CREAM AND GULABJAMUN</that>
+      <template><think>
+      <set name = "d"><star/></set></think>
+      Noted. Can you tell me your name now please?
+      </template>
+     </category>
+         <category>
+      <pattern>*</pattern>
+      <that>NOTED CAN YOU TELL ME YOUR NAME NOW PLEASE</that>
+      <template><think>
+      <set name = "na"><star/></set></think>
+      Your address please?
+      </template>
+     </category>
+     <category>
+      <pattern>*</pattern>
+      <that>YOUR ADDRESS PLEASE</that>
+      <template><think>
+      <set name = "a"><star/></set></think>
+      In the last, your phone number?
+      </template>
+     </category>
+     <category>
+      <pattern>*</pattern>
+      <that>IN THE LAST YOUR PHONE NUMBER</that>
+      <template><think>
+      <set name = "p"><star/></set></think>
+      Would you like to receive notifications about our latest offers?
+      </template>
+     </category>
+     <category>
+      <pattern>YES</pattern>
+      <that>WOULD YOU LIKE TO RECEIVE NOTIFICATIONS ABOUT OUR LATEST OFFERS</that>
+      <template>
+     Thank You!
+     Order Confirmation:
+     <get name="q"/> quantity of <get name="n"/> along with one <get name = "d"/>.
+     Name : <get name ="na"/>
+     Address : <get name = "a"/>
+     Phone Number : <get name = "p"/>
+     Due to our fast delivery, you should hope to find your food on your table, twenty minutes from now!
+     Hope to see you again soon! Please rate us on Zomato!
+      </template>
+     </category>
+     <category>
+      <pattern>NO</pattern>
+      <that>WOULD YOU LIKE TO RECEIVE NOTIFICATIONS ABOUT OUR LATEST OFFERS</that>
+      <template>
+      That's fine.
+       Order Confirmation:
+     <get name="q"/> quantity of <get name="n"/> along with one <get name = "d"/>.
+     Name : <get name ="na"/>
+     Address : <get name = "a"/>
+     Phone Number : <get name = "p"/>	
+     Due to our fast delivery, you should hope to find your food on your table, twenty minutes from now!
+     Hope to see you again soon! Please rate us on Zomato!
+      </template>
+     </category>
+      <category>
+      <pattern>BYE</pattern>
+      <template>
+      BYE! Hope to see you again soon!
+      </template>  
+   </category>  
+    <category>
+      <pattern>THANK YOU</pattern>
+      <template>
+         BYE! Hope to see you again soon!
+      </template>  
+   </category>  
+   <category>
+   <pattern>* RECOMMEND *</pattern>
+   <template>I would recommend trying today's special, that is Humus and Peta Bread.</template>
+   </category>
+     <category>
+      <pattern> TRACK </pattern>
+      <template>Can you please provide your tracking ID?</template>
+     </category>
+       <category>
+      <pattern>* TRACK </pattern>
+      <template>Can you please provide your tracking ID?</template>
+     </category>
+      <category>
+      <pattern> TRACK *</pattern>
+      <template>Can you please provide your tracking ID?</template>
+     </category>
+      <category>
+      <pattern>* TRACK *</pattern>
+      <template>Can you please provide your tracking ID?</template>
+     </category>
+     <category>
+     <pattern>*</pattern>
+     <that>CAN YOU PLEASE PROVIDE YOUR TRACKING ID</that>
+     <template>
+     <random>
+     <li>We are out for delivery. We'll be reaching you in the next 5 minutes</li>
+     <li>Sorry for the delay but the delivery boy is stuck in a jam. He'll be reaching your place in 15 minutes.</li>
+     <li>The food is still being prepared. Please wait for some time.</li>
+     </random>
+     </template>
+     </category>
+     
+    
+</aiml>
